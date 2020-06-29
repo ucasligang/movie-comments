@@ -5,10 +5,10 @@
 # @Email   : ucasligang@163.com
 # @Software: PyCharm
 from data import build_word2id, build_word2vec, load_corpus
-from model import TextCNN
 
 word2id = build_word2id(file='./dataset/word2id.txt', save_to_path=True)
 word2vec = build_word2vec('./dataset/wiki_word2vec_50.bin', word2id, save_to_path='./dataset/word2vec.txt')
+
 
 class Config():
     update_w2v = True  # 是否在训练中更新w2v
@@ -22,6 +22,6 @@ class Config():
 
     learning_rate = 0.001  # 学习率
     batch_size = 32  # 训练批量
-    epochs = 5  # 训练轮数
-    model_path = './models/model.pth'  # 预训练模型路径
+    epochs = 10  # 训练轮数
+    model_path = "./models/model.pth"  # 预训练模型路径
     verbose = True  # 打印训练过程

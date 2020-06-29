@@ -8,6 +8,8 @@ from collections import Counter
 
 import gensim
 import numpy as np
+
+
 def build_word2id(file, save_to_path=None):
     """
     :param file: word2id保存地址
@@ -30,8 +32,9 @@ def build_word2id(file, save_to_path=None):
                 f.write(w+'\t')
                 f.write(str(word2id[w]))
                 f.write('\n')
-
     return word2id
+
+
 def build_word2vec(fname, word2id, save_to_path=None):
     """
     :param fname: 预训练的word2vec
@@ -50,10 +53,11 @@ def build_word2vec(fname, word2id, save_to_path=None):
     if save_to_path:
         with open(save_to_path, 'w', encoding='utf-8') as f:
             for vec in word_vecs:
-                #vec = [str[w] for w in vec]
+                # vec = [str[w] for w in vec]
                 f.write(' '.join(str(vec)))
                 f.write('\n')
     return word_vecs
+
 
 def cat_to_id(classes=None):
     """
@@ -64,6 +68,7 @@ def cat_to_id(classes=None):
         classes = ['0', '1']
     cat2id = {cat: idx for (idx, cat) in enumerate(classes)}
     return classes, cat2id
+
 
 def load_corpus(path, word2id, max_sen_len=50):
     """
@@ -81,7 +86,7 @@ def load_corpus(path, word2id, max_sen_len=50):
             content = [word2id.get(w, 0) for w in sp[1:]]
             content = content[:max_sen_len]
             if len(content) < max_sen_len:
-                content += [word2id['_PAD_']]*(max_sen_len-len(content))
+                content += [word2id['_PAD_']] * (max_sen_len-len(content))
             labels.append(label)
             contents.append(content)
     couter = Counter(labels)
@@ -95,8 +100,8 @@ def load_corpus(path, word2id, max_sen_len=50):
 
     return contents, labels
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     word2id = build_word2id(file='./dataset/word2id.txt', save_to_path=True)
     word2vec = build_word2vec('./dataset/wiki_word2vec_50.bin', word2id, save_to_path='./dataset/word2vec.txt')
     print(word2vec.shape)
@@ -111,4 +116,3 @@ if __name__ == '__main__':
     print(test_contents)
     print("labels:\n")
     print(test_labels)
-

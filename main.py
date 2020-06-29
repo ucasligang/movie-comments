@@ -4,6 +4,8 @@
 # @FileName: main.py
 # @Email   : ucasligang@163.com
 # @Software: PyCharm
+from builtins import enumerate
+
 import numpy as np
 import torch
 from torch import nn
