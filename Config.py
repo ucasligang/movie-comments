@@ -23,5 +23,5 @@ class Config():
     learning_rate = 0.001  # 学习率
     batch_size = 32  # 训练批量
     epochs = 10  # 训练轮数
-    model_path = "./models/model.pth"  # 预训练模型路径
+    model_path = None # 预训练模型路径
     verbose = True  # 打印训练过程

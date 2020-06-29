@@ -83,5 +83,5 @@ def predict():
     print('test accuracy is {:.2f}%.'.format(100 * correct / count))
 
 if __name__ == '__main__':
-    # train()
-    predict()
+    train()
+    # predict()
