@@ -4,6 +4,8 @@
 # @FileName: main.py
 # @Email   : ucasligang@163.com
 # @Software: PyCharm
+from builtins import enumerate
+
 import numpy as np
 import torch
 from torch import nn
@@ -81,5 +83,5 @@ def predict():
     print('test accuracy is {:.2f}%.'.format(100 * correct / count))
 
 if __name__ == '__main__':
-    # train()
-    predict()
+    train()
+    # predict()
